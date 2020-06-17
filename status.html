@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            var status = [0,1,2,0,0,2];
+            var colors = ["white", "yellow", "red"];
+
+            function color() {
+                var colorRow = document.getElementById("colorRow")
+                colorRow.innerHTML = "";
+
+                for (i = 0; i < status.length; i++) {
+                    var colorBox = document.createElement("td");   
+                    
+                    var status_id = status[i];
+                    if (status_id < status.length) {
+                        colorBox.style.backgroundColor = colors[status[i]];
+
+                        colorBox.style.width = "30px";
+                        colorBox.style.height = "30px";
+                        colorBox.style.border = "2px solid black";
+
+                        colorRow.appendChild(colorBox);
+                    }
+                    else {
+                        console.log("Undefined color: " + status[i]);
+                    }
+                    
+                }
+            }
+
+            function addBox() {
+                var colorRow = document.getElementById("colorRow");
+                var status_id = document.getElementById("stat").value;
+
+                var colorBox = document.createElement("td");
+
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="color" onclick="color()">
+        <input type="number" id="stat">
+        <input type="button" value="color" onclick="addBox()">
+        <table>
+            <tr id="colorRow"></tr>
+        </table>
+    </body>
+</html>

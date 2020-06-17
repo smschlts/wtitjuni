@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function count() {
+                //get max count
+                var maxCount = document.getElementById("maxCount").value
+                console.log(maxCount)
+
+                //reset div
+                var div = document.getElementById("countDiv");
+                div.innerHTML = "";
+
+                // print individual numbers
+                for (i = 0; i < maxCount; i++) {
+                    // var number = document.createElement("b");
+                    // number.innerHTML = i+1;
+                    // div.appendChild(number);
+                    // div.appendChild(document.createElement("br"))
+
+                    div.innerHTML += (i+1) + "</br>"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="number" id="maxCount">
+        <input type="button" value="count" onclick="count()">
+        <div id="countDiv"></div>
+    </body>
+</html>

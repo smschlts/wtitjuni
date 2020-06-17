@@ -1,4 +1,89 @@
-hoi
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- css-->
+        <style>
+            b {
+                background-color: red;
+                font-size: 21px;
+            }
+            td {
+                border: 2px solid blue;
+                width: 30px;
+                height: 30px;
+            }
+        </style>
 
-doei
+        <!-- javascript-->
+        <script>
+            var discColors = ['red', 'yellow']
+            var fieldHeight = 6;
+            var fieldWidth = 6;
 
+            function proberen() {
+                var name = document.getElementById("naam").value;
+                document.getElementById("nameField").innerHTML = name;
+                createEmptyField()
+            }
+
+            function vakjeVullen(element) {
+                element.style.backgroundColor = discColors[0];
+                //element.style.border = "5px solid green"
+                var deDOM = document.getElementsByTagName("html");
+                console.log(deDOM)
+                //var el = document.getElementById("vakje00")
+                //el.bgColor = "yellow"
+            }
+
+            var isRood = false;
+            function start() {
+                if (isRood) {
+                    alert("De kleur is rood.");
+                } else {
+                    alert("De kleur is geel.");
+                }
+                isRood = !isRood
+            }
+
+
+            function createEmptyField() {
+                var div = document.getElementById("divField");
+
+                var table = document.createElement("table");
+
+                //
+                for (var r = 0; r < fieldHeight; r++) {
+                    var row = document.createElement("tr");
+                    for (var c = 0; c < fieldWidth; c++) {
+                        var cell = document.createElement("td");
+                        cell.id = "testt"
+                        //cell.onclick = "vakjeVullen(this);";
+
+                        row.appendChild(cell);
+                    }
+                    table.appendChild(row);
+                }
+                div.appendChild(table);
+            }
+
+            //window.onload=createEmptyField
+        </script>
+    </head>
+        
+    <title>Titel</title>
+    <body>
+        <b onclick="proberen()" id="nameField"> dik  gedrukt</b> <br />
+        <hr>
+        Geef uw naam
+        <input type=text id="naam"> 
+        <input type="button" value="Klik maar" onclick="proberen()">
+        <hr>
+        <input type="button" value="start()" onclick="start()">
+        <table>
+            <tr><td id="vakje00" onclick="vakjeVullen(this);"> </td><td id="vakje10" onclick="vakjeVullen(this);"> </td></tr>
+            <tr><td id="vakje01" onclick="vakjeVullen(this);"> </td><td id="vakje11" onclick="vakjeVullen(this);"> </td></tr>
+        </table>
+        <div id="divField"></div>
+    </body>
+</html>
